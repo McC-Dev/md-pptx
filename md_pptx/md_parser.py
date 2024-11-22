@@ -14,5 +14,3 @@ class md_parser:
 
 if __name__ == "__main__":
     parsed_file = md_parser("tests/TestCase.md", "")
-    print(parsed_file.meta_data.colours)
-    print(type(parsed_file.meta_data.colours["Accent2"]))

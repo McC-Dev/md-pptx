@@ -1,29 +1,29 @@
 import yaml
 from md_pptx.utilities.exceptions import MissingDataException
 from PIL import ImageColor
+import logging
+
+logging.basicConfig(
+    level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 class MetaData:
     def __init__(
         self,
-        Title: str,
-        SubTitle: str,
-        Version: int,
-        Author: str,
-        Colours: list[str,],
-        Template: str | None = None,
-        DefaultFont: str = "Tahoma",
         **kwargs,
     ):
-        self.title = Title
-        self.sub_title = SubTitle
-        self.version = Version
-        self.author = Author
-        self.template = Template
-        self.default_font = DefaultFont
-        self.colours = self.define_colours(Colours)
+        for key, value in kwargs.items():
+            if value is None:
+                continue
+            setattr(self, key.lower(), value)
 
-    def define_colours(self, Colours: list[str,]):
+        if self.colours:
+            self.colours = self.define_colours(self.colours)
+
+        logging.debug(self.__dict__)
+
+    def define_colours(self, Colours: list[str,]) -> dict[str, str | None]:
         colour_dict = {
             "Background1": None,
             "Background2": None,

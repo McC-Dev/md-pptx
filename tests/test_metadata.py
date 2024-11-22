@@ -1,5 +1,8 @@
 from md_pptx import md_parser
 import unittest
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 
 class MetaDataTest(unittest.TestCase):
