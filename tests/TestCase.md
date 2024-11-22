@@ -1,4 +1,3 @@
-
 ---
 Title: PowerPoint TestCase
 SubTitle: Testing for md-pptx
@@ -17,7 +16,7 @@ Colours:
     Accent5: rgb(0,153,0)
     Accent6: rgb(114,0,153)
 Template: TemplateFile.pptx
-Font: Tahoma
+Font: Arial
 ---
 
 # Slide 1 Title
