@@ -1,4 +1,3 @@
-import yaml
 from md_pptx.utilities.exceptions import MissingDataException
 from pptx.text.fonts import FontFiles
 from PIL import ImageColor
@@ -38,7 +37,15 @@ class MetaData:
 
         logging.debug(self.__dict__)
 
-    def define_colours(self, Colours: list[str,]) -> dict[str, str | None]:
+    def define_colours(self, Colours: list[str,]) -> dict[str, tuple[int, int, int] | tuple[int, int, int, int] | None]:
+        """
+        Converts the colours into RGB strings using Pillow ImageColour
+
+        :param Colours: List of colours as strings in either rgb(255,255,255) or #4a4a49 formats
+        :type Colours: list[str,]
+        :return: Dictionary of colour fields with rgb tuple
+        :rtype: dict[str, tuple[int,] | None]
+        """
         colour_dict = {
             "Background1": None,
             "Background2": None,
@@ -59,6 +66,15 @@ class MetaData:
         return colour_dict
 
     def font_check(self, requested_font: str) -> FontFiles:
+        """
+        Converts font string name into font file path for later use.
+        If it can't be found it will rever to a default Tahoma
+
+        :param requested_font: font name as string
+        :type requested_font: str
+        :return: Return the absolute path to an installed OpenType font.
+        :rtype: FontFiles
+        """
         try:
             self.font = FontFiles.find(requested_font, False, False)
         except KeyError:
@@ -68,10 +84,4 @@ class MetaData:
             self.font = FontFiles.find("Tahoma", False, False)
 
 
-def parse_meta_data(file_data: str) -> MetaData:
-    if not file_data.startswith("---"):
-        raise MissingDataException("No meta data found at start of file")
 
-    meta_data_yaml = yaml.safe_load(file_data.split("---\n")[1])
-
-    return MetaData(**meta_data_yaml, is_file_header=True)

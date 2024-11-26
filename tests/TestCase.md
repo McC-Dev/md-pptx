@@ -24,7 +24,7 @@ Font: Arial
 ## SubTitle for Slide 1
 
 - Bullet 1
-    - SubBullet 1.1
+	- SubBullet 1.1
     - SubBullet 1.2
 - Bullet 2
 
@@ -33,6 +33,9 @@ Font: Arial
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam congue nulla velit, vitae accumsan velit commodo vel. Proin lobortis <span colour="R0 G200 B20">mattis ex</span>, in posuere leo venenatis ac. Aenean efficitur, ex sit. 
 
 # Slide 3 Title
+---
+font: windings
+---
 
 ## SubTitle for slide 3
 

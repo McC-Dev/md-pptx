@@ -5,7 +5,7 @@ import unittest
 class MetaDataTest(unittest.TestCase):
     def __init__(self, methodName="runTest"):
         super().__init__(methodName)
-        parsed_file = md_parser.MdParser("./tests/TestCase.md", "")
+        parsed_file = md_parser.MdParser("./tests/TestCase.md")
         self.meta_data = parsed_file.meta_data
 
     def test_title(self):
