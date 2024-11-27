@@ -39,4 +39,10 @@ font: windings
 
 ## SubTitle for slide 3
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam congue nulla velit, vitae accumsan velit commodo vel. Proin lobortis mattis ex, in posuere leo venenatis ac. Aenean efficitur, ex sit. 
+Here is a frog holding an umbrella:
+
+![Frog holding brolly](./tests/FrogBrolly.png)
+
+# Slide 4
+
+[Gecko Under a Leaf](https://www.shutterstock.com/shutterstock/photos/735308662/display_1500/stock-photo-silhouette-of-a-lizard-shadow-on-a-green-tropical-leaf-in-nature-on-a-blue-and-green-background-735308662.jpg)

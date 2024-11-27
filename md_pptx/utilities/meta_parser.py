@@ -3,12 +3,7 @@ from pptx.text.fonts import FontFiles
 from PIL import ImageColor
 import logging
 
-logging.basicConfig(
-    level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s"
-)
-
-
-class MetaData:
+class MasterMetaData:
     def __init__(
         self,
         is_file_header: bool = False,
@@ -35,7 +30,7 @@ class MetaData:
         else:
             self.font = None
 
-        logging.debug(self.__dict__)
+        #logging.debug(self.__dict__)
 
     def define_colours(self, Colours: list[str,]) -> dict[str, tuple[int, int, int] | tuple[int, int, int, int] | None]:
         """
@@ -83,5 +78,8 @@ class MetaData:
             )
             self.font = FontFiles.find("Tahoma", False, False)
 
-
+class SlideMetaData(MasterMetaData):
+    def __init__(self, level: int = 0,**kwargs):
+      self.level = level
+      super().__init__(False, kwargs=kwargs)
 
